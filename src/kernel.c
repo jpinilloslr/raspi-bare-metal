@@ -1,31 +1,8 @@
 #include "printf.h"
 #include "uart.h"
 
-void print_memu()
-{
-    printf("1\tOption1\r\n");
-    printf("2\tOption2\r\n");
-    printf("3\tOption3\r\n");
-    printf("\r\n");
-}
-
-void option1()
-{
-    printf("Executed option1\r\n");
-    printf("\r\n");
-}
-
-void option2()
-{
-    printf("Executed option2\r\n");
-    printf("\r\n");
-}
-
-void option3()
-{
-    printf("Executed option3\r\n");
-    printf("\r\n");
-}
+static void _print_memu();
+static void _check_el();
 
 void main()
 {
@@ -39,10 +16,18 @@ void main()
     {
         char o = uart_read();
         if (o == '1')
-            option1();
-        if (o == '2')
-            option2();
-        if (o == '3')
-            option3();
+            check_el();
     }
+}
+
+static void _print_memu()
+{
+    printf("1:    Check current exception level\r\n");
+    printf("\r\n");
+}
+
+static void _check_el()
+{
+    printf("Current exception level: %d\r\n", get_el());
+    printf("\r\n");
 }
