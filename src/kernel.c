@@ -10,7 +10,7 @@ void main()
     init_printf(0, uart_putc);
 
     printf("Initialized UART from processor 0\r\n");
-    print_memu();
+    _print_menu();
 
     while (1)
     {
@@ -20,7 +20,7 @@ void main()
     }
 }
 
-static void _print_memu()
+static void _print_menu()
 {
     printf("1:    Check current exception level\r\n");
     printf("\r\n");
