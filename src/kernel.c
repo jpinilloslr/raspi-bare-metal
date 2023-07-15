@@ -1,5 +1,6 @@
 #include "printf.h"
 #include "uart.h"
+#include "el.h"
 
 static void _print_menu();
 static void _check_el();
@@ -16,7 +17,7 @@ void main()
     {
         char o = uart_read();
         if (o == '1')
-            check_el();
+            _check_el();
     }
 }
 
