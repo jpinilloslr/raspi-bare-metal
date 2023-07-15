@@ -1,7 +1,7 @@
 #include "printf.h"
 #include "uart.h"
 
-static void _print_memu();
+static void _print_menu();
 static void _check_el();
 
 void main()
